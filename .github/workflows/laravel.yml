@@ -1,5 +1,4 @@
 name: Deploy Application to Server
-
 on:
   push:
     branches: [ "main" ]
