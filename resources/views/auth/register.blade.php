@@ -29,7 +29,7 @@
                                     </div>
                                     <div class="d-flex">
                                         <div class="input_text">
-                                            <input type="text" value="{{ old('fname') }}" name="fname" class="form-control @error('fname') is-invalid @enderror" placeholder="First Name" autocomplete="first-name" required>
+                                            <input type="text" value="{{ old('fname') }}" name="fname" class="input_string form-control @error('fname') is-invalid @enderror" placeholder="First Name" autocomplete="first-name" required>
                                             <i class="fa fa-user"></i>
 
                                             @error('fname')
@@ -39,7 +39,7 @@
                                             @enderror
                                         </div>
                                         <div class="input_text">
-                                            <input type="text" value="{{ old('sname') }}" name="sname" class="form-control @error('sname') is-invalid @enderror" placeholder="Surname" autocomplete="surname" required>
+                                            <input type="text" value="{{ old('sname') }}" name="sname" class="input_string form-control @error('sname') is-invalid @enderror" placeholder="Surname" autocomplete="surname" required>
                                             <i class="fa fa-user"></i>
                                             @error('sname')
                                             <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                     <div class="input_text">
-                                        <input type="email" value="{{ old('email') }}" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" autocomplete="email" required>
+                                        <input type="email" value="{{ old('email') }}" name="email" class="input_email form-control @error('email') is-invalid @enderror" placeholder="Email" autocomplete="email" required>
                                         <i class="fa fa-envelope"></i>
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
                                         @enderror
                                     </div>
                                     <div class="input_text" id="password">
-                                        <input type="password" value="{{ old('password') }}" name="password" class="form-control @error('password') is-invalid @enderror signup_pass" placeholder="Password" autocomplete="new-password" required>
+                                        <input type="password" value="{{ old('password') }}" name="password" class="input_password form-control @error('password') is-invalid @enderror signup_pass" placeholder="Password" autocomplete="new-password" required>
                                         <i class="fa fa-lock"></i>
                                         <i id="show_hide_password" class="fa fa-eye-slash signup_eye"></i>
                                         @error('password')
@@ -68,7 +68,7 @@
                                         @enderror
                                     </div>
                                     <div class="input_text" id="conf_password">
-                                        <input type="password" value="{{ old('password_confirmation') }}" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror signup_pass" placeholder="Password" autocomplete="new-password" required>
+                                        <input type="password" value="{{ old('password_confirmation') }}" name="password_confirmation" class="input_password form-control @error('password_confirmation') is-invalid @enderror signup_pass" placeholder="Password" autocomplete="new-password" required>
                                         <i class="fa fa-lock"></i>
                                         <i id="conf_show_hide_password" class="fa fa-eye-slash signup_eye"></i>
                                         @error('password_confirmation')
@@ -123,9 +123,9 @@
         $("#conf_show_hide_password").on('click', function(event) {
             event.preventDefault();
             if ($('#conf_password input').attr("type") == "text") {
-                $('#conf_assword input').attr('type', 'password');
-                $('#conf_assword #conf_show_hide_password').addClass("fa-eye-slash");
-                $('#conf_assword #conf_show_hide_password').removeClass("fa-eye");
+                $('#conf_password input').attr('type', 'password');
+                $('#conf_password #conf_show_hide_password').addClass("fa-eye-slash");
+                $('#conf_password #conf_show_hide_password').removeClass("fa-eye");
             } else if ($('#conf_password input').attr("type") == "password") {
                 $('#conf_password input').attr('type', 'text');
                 $('#conf_password #conf_show_hide_password').removeClass("fa-eye-slash");

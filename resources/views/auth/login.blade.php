@@ -87,7 +87,7 @@
                                         <h2>User Login</h2>
                                     </div>
                                     <div class="input_text">
-                                        <input placeholder="Email" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        <input placeholder="Email" id="email" type="email" class="input_email form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                         <i class="fa-solid fa-envelope"></i>
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -96,7 +96,7 @@
                                         @enderror
                                     </div>
                                     <div class="input_text" id="password">
-                                        <input type="password" value="{{ old('password') }}" name="password" class="form-control @error('password') is-invalid @enderror signup_pass" placeholder="Password" autocomplete="current-password" required>
+                                        <input type="password" value="{{ old('password') }}" name="password" class="input_password form-control @error('password') is-invalid @enderror signup_pass" placeholder="Password" autocomplete="current-password" required>
                                         <i class="fa fa-lock"></i>
                                         <i id="show_hide_password" class="fa fa-eye-slash signup_eye"></i>
                                         @error('password')

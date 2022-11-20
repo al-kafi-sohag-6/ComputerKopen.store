@@ -115,7 +115,7 @@
     position: relative
 }
 
-input[type="text"] {
+.input_string {
     height: 45px;
     width: 98%;
     border: none;
@@ -126,7 +126,7 @@ input[type="text"] {
     border-radius: 10px
 }
 
-input[type="email"] {
+.input_email {
     height: 45px;
     width: 100%;
     border: none;
@@ -137,7 +137,7 @@ input[type="email"] {
     border-radius: 10px
 }
 
-input[type="password"] {
+.input_password {
     height: 45px;
     width: 100%;
     border: none;
@@ -272,15 +272,15 @@ input[type="password"] {
     .cnt .card .left-side {
         display: none
     }
-    input[type="text"] {
+    .input_string {
         padding-left: 20%;
     }
 
-    input[type="email"] {
+    .input_email {
         padding-left: 12%;
     }
 
-    input[type="password"] {
+    .input_password{
         padding-left: 12%;
     }
 
