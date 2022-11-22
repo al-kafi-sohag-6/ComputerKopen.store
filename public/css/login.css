@@ -11,7 +11,11 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: linear-gradient(to right top, #72565A, #124FEB)
+    background: rgb(1,248,152);
+    background: -moz-linear-gradient(90deg, rgba(1,248,152,1) 0%, rgba(1,255,144,1) 50%, rgba(0,212,255,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(1,248,152,1) 0%, rgba(1,255,144,1) 50%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(90deg, rgba(1,248,152,1) 0%, rgba(1,255,144,1) 50%, rgba(0,212,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#01f898",endColorstr="#00d4ff",GradientType=1);
 }
 
 .cnt .card {
