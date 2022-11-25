@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,4 +30,18 @@ Route::controller(FrontendController::class)->name('frontend.')->group(function(
     Route::get('/','home')->name('home');
 });
 
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+Route::group(['middleware' => ['auth', 'checkstatus']], function () {
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+    //User Management
+    Route::controller(UserController::class)->prefix('users')->name('users.')->group(function(){
+        Route::get('/index','index')->name('index')->middleware(['admin']);
+        Route::get('/add','add')->name('add')->middleware(['superadmin']);
+        Route::post('/add/store','store')->name('store')->middleware(['superadmin']);
+        Route::get('/view/{id}','view')->name('view')->middleware(['admin']);
+        Route::get('/edit/{id}','edit')->name('edit')->middleware(['admin']);
+        Route::post('/edit-store','edit_update')->name('edit.store')->middleware(['admin']);
+        Route::get('/status/{id}','status')->name('status')->middleware(['admin']);
+    });
+});

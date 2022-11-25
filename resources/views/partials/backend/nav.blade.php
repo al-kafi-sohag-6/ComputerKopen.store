@@ -1,52 +1,42 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+    </ul>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
+    <ul class="navbar-nav ml-auto mr-2">
+        <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link profile-toggle">
+                <img src="@if(isset(auth()->user()->image)){{ asset(auth()->user()->image)}}@else{{ asset('assets/image/default/avatar.png') }}@endif"
+                     class="user-image img-circle elevation-2" alt="{{ Auth::user()->name() }}">
+                <span class="d-none d-md-inline">{{ auth()->user()->name() }}</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right profile-details">
+                <!-- User image -->
+                <li class="user-header bg-primary">
+                    <img src="@if(isset(Auth::user()->image)){{ asset(Auth::user()->image)}}@else{{ asset('assets/image/default/avatar.png') }}@endif"
+                         class="img-circle elevation-2"
+                         alt="User Image">
+                    <p>
+                        {{ auth()->user()->name() }}
 
+                        <small>Member since {{ auth()->user()->created_at->format('M. Y') }}</small>
+                    </p>
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    <a href="#" class="btn btn-default btn-flat float-right"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Sign out
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
             </ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
-                <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
-                    <li class="nav-item">
-                        <a id="" class="nav-link" href="#">
-                            {{ Auth::user()->fname }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();">
-                         {{ __('Logout') }}
-                     </a>
-
-                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                         @csrf
-                     </form>
-                    </li>
-                @endguest
-            </ul>
-        </div>
-    </div>
+        </li>
+    </ul>
 </nav>

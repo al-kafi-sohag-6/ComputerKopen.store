@@ -1168,6 +1168,11 @@ class Blueprint
         $this->timestamp('created_at', $precision)->nullable();
 
         $this->timestamp('updated_at', $precision)->nullable();
+
+        //Additional columns
+
+        $this->unsignedBigInteger('created_by')->nullable();
+        $this->unsignedBigInteger('updated_by')->nullable();
     }
 
     /**

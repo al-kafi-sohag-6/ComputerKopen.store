@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend.dashboard');
+        $total_user = User::where('status', 1)->where('role', 1)->get()->count();
+        $total_admin = User::where('status', 1)->where('role', 2)->get()->count();
+        $disabled_user = User::where('status', -1)->get()->count();
+
+        return view('backend.dashboard', compact('total_user', 'total_admin', 'disabled_user'));
     }
 }

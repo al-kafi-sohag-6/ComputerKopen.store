@@ -49,6 +49,15 @@
                                         </div>
                                     </div>
                                     <div class="input_text">
+                                        <input type="text" max="{{ Carbon\Carbon::now()->subYears(13)->format('Y-m-d') }}" value="{{ old('dob') }}" name="dob" class="input_dob form-control @error('dob') is-invalid @enderror" placeholder="Date of Birth" autocomplete="date-of-birth" onfocus="this.type='date'; this.showPicker();" onclick="this.showPicker();" required>
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                        @error('dob')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                    <div class="input_text">
                                         <input type="email" value="{{ old('email') }}" name="email" class="input_email form-control @error('email') is-invalid @enderror" placeholder="Email" autocomplete="email" required>
                                         <i class="fa fa-envelope"></i>
                                         @error('email')

@@ -20,6 +20,10 @@
     {{-- Linked CSS --}}
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 
+    {{-- Toaster --}}
+    <link href="{{ asset('css/toastr/toastr.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('css/toastr/toastr.min.js') }}"></script>
+
     {{-- Page CSS --}}
     @stack('third_party_stylesheets')
     @stack('page_css')
@@ -42,5 +46,23 @@
     {{-- Page Scripts --}}
     @stack('third_party_scripts')
     @stack('page_scripts')
+
+    <script>
+        @if(session('success'))
+            toastr.success("{{ session('success') }}");
+        @endif
+
+        @if(session('error'))
+            toastr.error("{{ session('error') }}");
+        @endif
+
+        @if(Session::has('info'))
+            toastr.info("{{ session('info') }}");
+        @endif
+
+        @if(Session::has('warning'))
+            toastr.warning("{{ session('warning') }}");
+        @endif
+    </script>
 </body>
 </html>

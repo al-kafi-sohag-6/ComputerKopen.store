@@ -20,8 +20,16 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->date('dob');
+            $table->unsignedBigInteger('role')->default('1');
+            $table->integer('status')->default('1');
             $table->rememberToken();
             $table->timestamps();
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('created_by', 'user_created')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('updated_by', 'user_updated')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
