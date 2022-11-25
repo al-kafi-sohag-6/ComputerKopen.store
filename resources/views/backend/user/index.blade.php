@@ -87,18 +87,18 @@
             dom: 'Bfrtip',
             buttons: [{
                     extend: 'pdfHtml5',
-                    title: 'Blood Group Management',
+                    title: 'User Management',
                     download: 'open',
                     orientation: 'potrait',
                     pagesize: 'LETTER',
                     exportOptions: {
-                        columns: [0, 1, 2, 3]
+                        columns: [0, 1, 2, 3, 4]
                     }
                 },
                 {
                     extend: 'print',
                     exportOptions: {
-                        columns: [0, 1, 2, 3]
+                        columns: [0, 1, 2, 3, 4]
                     }
                 }, 'pageLength'
             ]
