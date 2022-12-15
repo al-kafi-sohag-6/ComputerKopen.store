@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
-	$("#cookiesModal").modal('show');
+    $("#cookiesModal").modal('show');
+
 });
 var isActive = document.getElementById("nav");
 var btns = isActive.getElementsByClassName("nav-link")
@@ -41,7 +42,7 @@ $('.chat-input input').keyup(function (e) {
 });
 function stepOne(){
 	var a = document.getElementById("orderStep1");
-	a.classList.toggle("active");	
+	a.classList.toggle("active");
 }
 function stepTwo(){
 	var b = document.getElementById("orderStep2");
@@ -65,14 +66,14 @@ function stepSix(){
 }
 
 
-function importData() {
-	let input = document.createElement('input');
-	input.type = 'file';
-	input.onchange = _ => {
-	  // you can use this method to get file and perform respective operations
-			  let files =   Array.from(input.files);
-			  console.log(files);
-		  };
-	input.click();
-	
-  }
+// function importData() {
+// 	let input = document.createElement('input');
+// 	input.type = 'file';
+// 	input.onchange = _ => {
+// 	  // you can use this method to get file and perform respective operations
+// 			  let files =   Array.from(input.files);
+// 			  console.log(files);
+// 		  };
+// 	input.click();
+
+//   }

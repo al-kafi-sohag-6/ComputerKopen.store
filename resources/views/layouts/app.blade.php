@@ -2,7 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
     {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -14,15 +16,20 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     {{-- Scripts --}}
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-
-    {{-- Linked CSS --}}
-    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <script src="{{ asset('assets/frontend/js/jquery.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/frontend/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/bootstrap.min.js') }}"></script>
 
     {{-- Toaster --}}
     <link href="{{ asset('css/toastr/toastr.min.css') }}" rel="stylesheet">
     <script src="{{ asset('css/toastr/toastr.min.js') }}"></script>
+
+    {{-- Frontend Assets --}}
+    <link href="{{ asset('assets/frontend/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets/frontend/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link href="{{ asset('assets/frontend/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/style.css') }}" rel="stylesheet">
 
     {{-- Page CSS --}}
     @stack('third_party_stylesheets')
@@ -31,16 +38,19 @@
 </head>
 <body>
     <div id="app">
-        {{-- Main Navbar --}}
-        @include('partials.frontend.nav')
 
-        {{-- Main Page Content --}}
-        <main class="">
-            @yield('content')
-        </main>
+        <div class="wrapper">
+            {{-- Main Navbar --}}
+            @include('partials.frontend.nav')
 
-        {{-- Main Footer --}}
-        @include('partials.frontend.footer')
+            {{-- Main Page Content --}}
+            <main class="" id="main">
+                @yield('content')
+            </main>
+
+            {{-- Main Footer --}}
+            @include('partials.frontend.footer')
+        </div>
     </div>
 
     {{-- Page Scripts --}}
@@ -64,5 +74,8 @@
             toastr.warning("{{ session('warning') }}");
         @endif
     </script>
+
+    {{-- Frontend Assets --}}
+    <script src="{{ asset('assets/frontend/js/custom.js') }}"></script>
 </body>
 </html>

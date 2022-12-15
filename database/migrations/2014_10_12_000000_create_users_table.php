@@ -20,11 +20,18 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->date('dob');
+            $table->string('gender')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('street')->nullable();
+            $table->string('city')->nullable();
+            $table->string('phone')->nullable();
+            $table->date('dob')->nullable();
             $table->unsignedBigInteger('role')->default('1');
             $table->integer('status')->default('1');
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
         });
 
         Schema::table('users', function (Blueprint $table) {

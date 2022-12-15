@@ -1,75 +1,44 @@
 {{-- Navbar For Frontend --}}
-
-{{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
-
-            </ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
-                <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
+<header id="header">
+    <nav class="navbar navbar-expand-lg navbar-light " id="navbar">
+        <div class="container">
+            <strong class="site-logo">
+                <a href="{{ route('frontend.home') }}">
+                    <img src="{{  asset('assets/frontend/img/Logo-Computerkopen.png') }}" alt="logo" class="img-fluid"/>
+                </a>
+            </strong>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                <ul class="d-lg-flex align-items-center d-block list-unstyled" id="nav">
+                    <li><a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ route('frontend.home') }}">Home</a></li>
+                    <li><a class="nav-link {{ Request::is('products') ? 'active' : '' }}" href="{{ route('frontend.products') }}">Products</a></li>
+                    <li><a class="nav-link {{ Request::is('frequently-asked-questions') ? 'active' : '' }}" href="{{ route('frontend.faq') }}">FAQ</a></li>
+                    <li><a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="{{ route('frontend.contact') }}">Contact</a></li>
+                    <li class="language">
+                        <div class="switch">
+                            <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+                            <label for="language-toggle"></label>
+                            <span class="on">NL</span>
+                            <span class="off">EN</span>
                         </div>
                     </li>
-                @endguest
-            </ul>
-        </div>
-    </div>
-</nav> --}}
-
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img class="nav-logo"src="{{ asset('assets/image/default/site-logo.png') }}" alt="{{ config('app.name', 'Laravel') }}"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-bar"
-            aria-controls="navbar-bar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-bar">
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="{{ route('frontend.home') }}">Home</a>
-                <a class="nav-link" href="#">Page 1</a>
-                <a class="nav-link" href="#">Page 2</a>
-                <a class="nav-link" href="#">Page 3</a>
-                <a class="nav-link" href="{{ route('login') }}">Login</a>
-                <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    <span class="d-flex header-btn-wrap">
+                        <li>
+                            @if (auth()->user())
+                                <a class="nav-link header-btn" href="">Profile</a>
+                            @else
+                                <a href="{{ route('login') }}" class="nav-link header-btn">
+                                    <span class="me-2"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                                    <span>Login</span>
+                                </a>
+                            @endif
+                        </li>
+                    </span>
+                </ul>
             </div>
+
         </div>
-    </div>
-</nav>
+    </nav>
+</header>

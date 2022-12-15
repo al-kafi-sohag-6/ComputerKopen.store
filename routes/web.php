@@ -28,6 +28,11 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 //Frontend Routes
 Route::controller(FrontendController::class)->name('frontend.')->group(function(){
     Route::get('/','home')->name('home');
+    Route::get('/products','products')->name('products');
+    Route::get('/pages/{id}','pages')->name('pages');
+    Route::get('/contact','contact')->name('contact');
+    Route::get('/frequently-asked-questions','faq')->name('faq');
+    Route::get('/product/{id}','product')->name('product');
 });
 
 
