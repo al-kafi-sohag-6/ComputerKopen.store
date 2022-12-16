@@ -28,7 +28,7 @@ jobs:
       with:
         host: 'ssh.computerkopen.store'
         username: 'computerkopenstore'
-        password: '#computerkopen2022'
+        password: '#Computerkopen2022'
         script: |
             cd subsites/test.computerkopen.store
             git reset --hard
