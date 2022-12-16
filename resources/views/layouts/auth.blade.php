@@ -37,16 +37,9 @@
 
 </head>
 <body>
-    <div id="app">
 
-        <div class="wrapper">
-
-            {{-- Main Page Content --}}
-            <main class="" id="main">
-                @yield('content')
-            </main>
-        </div>
-    </div>
+    {{-- Main Page Content --}}
+    @yield('content')
 
     {{-- Page Scripts --}}
     @stack('third_party_scripts')

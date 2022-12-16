@@ -17,7 +17,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 //Email varification
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
@@ -35,8 +35,15 @@ Route::controller(FrontendController::class)->name('frontend.')->group(function(
     Route::get('/product/{id}','product')->name('product');
 });
 
-
-Route::group(['middleware' => ['auth', 'checkstatus']], function () {
+//User Routes
+Route::group(['middleware' => ['auth', 'checkstatus', 'verified']], function () {
+    Route::controller(FrontendController::class)->name('frontend.user.')->group(function(){
+        Route::get('/profile','profile')->name('profile');
+        Route::get('/update-profile','update_profile')->name('profile.update');
+    });
+});
+// Admin Routes
+Route::group(['middleware' => ['auth', 'checkstatus', 'admin']], function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
     //User Management

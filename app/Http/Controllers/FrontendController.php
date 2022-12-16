@@ -37,4 +37,20 @@ class FrontendController extends Controller
     public function pages(){
         return view('frontend.pages');
     }
+
+    //User Profile
+    public function profile(){
+        return view('frontend.profile');
+    }
+
+    //Profile Update
+    public function update_profile(){
+        return view('frontend.update-profile');
+    }
+
+
+
+
+
+
 }

@@ -27,7 +27,19 @@
                     <span class="d-flex header-btn-wrap">
                         <li>
                             @if (auth()->user())
-                                <a class="nav-link header-btn" href="">Profile</a>
+                                @if(Request::is('profile'))
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <a class="nav-link header-btn" id="logout-button" href="javascript:void(0);" >
+                                        <span class="me-2">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        </span>
+                                        <span>Log Out</span>
+                                    </a>
+                                </form>
+                                @else
+                                    <a class="nav-link header-btn" href="{{ route('frontend.user.profile') }}">Profile</a>
+                                @endif
                             @else
                                 <a href="{{ route('login') }}" class="nav-link header-btn">
                                     <span class="me-2"><i class="fa fa-sign-in" aria-hidden="true"></i></span>

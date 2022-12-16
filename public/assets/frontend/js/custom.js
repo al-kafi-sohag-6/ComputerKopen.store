@@ -2,6 +2,11 @@
 $(document).ready(function(){
     $("#cookiesModal").modal('show');
 
+    $('#logout-button').click(function(){
+        $('#logout-form').submit();
+    });
+
+
 });
 var isActive = document.getElementById("nav");
 var btns = isActive.getElementsByClassName("nav-link")
